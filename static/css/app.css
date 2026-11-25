@@ -1,0 +1,27 @@
+body {
+  background: #f6f8fb;
+  color: #172033;
+  min-height: 100vh;
+}
+.hero {
+  color: white;
+  background: linear-gradient(120deg, #172554 0%, #1d4ed8 65%, #0f766e 100%);
+}
+.hero p { max-width: 680px; }
+.card { border: 1px solid #e7ebf1; border-radius: 1rem; }
+.package-image { height: 190px; object-fit: cover; }
+.package-placeholder {
+  min-height: 260px;
+  background: linear-gradient(135deg, #dbeafe, #ccfbf1);
+  color: #1e3a8a;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.stat-card {
+  height: 100%;
+  background: white;
+  border: 1px solid #e7ebf1;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.04);
+}

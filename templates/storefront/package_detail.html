@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load money %}
+{% block title %}{{ package.name }} — InvestSim{% endblock %}
+{% block content %}
+<a href="{% url 'package_list' %}" class="text-decoration-none">← Вернуться в каталог</a>
+<div class="row g-4 mt-2">
+  <div class="col-lg-7">
+    {% if package.image %}
+      <img src="{{ package.image.url }}" class="img-fluid rounded-4" alt="{{ package.name }}">
+    {% else %}
+      <div class="package-placeholder rounded-4 d-flex align-items-center justify-content-center">InvestSim</div>
+    {% endif %}
+  </div>
+  <div class="col-lg-5">
+    <span class="badge text-bg-primary mb-2">Демонстрационный пакет</span>
+    <h1 class="h2">{{ package.name }}</h1>
+    <p class="text-secondary">{{ package.description }}</p>
+    <div class="display-6 fw-bold mb-3">{{ package.price|money }}</div>
+    <div class="card card-body">
+      <div class="d-flex justify-content-between py-2 border-bottom"><span>Срок</span><strong>{{ package.duration_days }} дней</strong></div>
+      <div class="d-flex justify-content-between py-2 border-bottom"><span>Условная годовая доходность</span><strong>{{ package.annual_yield_percent }}%</strong></div>
+      <div class="d-flex justify-content-between py-2"><span>Доступно</span><strong>{% if package.is_unlimited %}Без ограничения{% else %}{{ package.available_count }}{% endif %}</strong></div>
+    </div>
+    <div class="alert alert-warning mt-3 small">Покупка и доходность в проекте моделируются в учебных целях. Реальные денежные операции не выполняются.</div>
+  </div>
+</div>
+{% endblock %}
